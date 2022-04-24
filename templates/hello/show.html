@@ -1,0 +1,39 @@
+{% extends 'hello/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title_block %}
+    <title>Details</title>
+    {% endblock %}
+</head>
+<body>
+  {% block content %}
+    <div class="container mx-auto">
+    <h1 class="my-12 text-9xl">Student Details</h1>
+    <a href="{% url 'home' %}" class="btn btn-lg">Back To Home Page</a>
+    <div class="card w-96 bg-base-100 shadow-xl mx-auto my-12">
+        <figure><img src="https://api.lorem.space/image/face?w=150&h=150" alt="eksde" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">
+            eksde!
+            <div class="badge badge-secondary">NEW</div>
+          </h2>
+          <p class="justify-start text-sky-400">First Name: <span class="text-white">{{student.Frst_Name}}</span></p>
+          <p class="justify-start text-sky-400">Last Name: <span class="text-white">{{student.Last_Name}}</span></p>
+          <p class="justify-start text-sky-400">Age: <span class="text-white">{{student.Age}}</span></p>
+          <p class="justify-start text-sky-400">Email: <span class="text-white">{{student.Email}}</span></p>
+          <p class="justify-start text-sky-400">Phone: <span class="text-white">{{student.Phone}}</span></p>
+          <p class="justify-start text-sky-400">Address: <span class="text-white">{{student.address}}</span></p>
+          <div class="card-actions justify-end">
+            <div class="badge badge-outline">Sad</div> 
+            <div class="badge badge-outline">Mad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
