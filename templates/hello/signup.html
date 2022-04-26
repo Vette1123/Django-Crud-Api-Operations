@@ -1,0 +1,104 @@
+{% extends 'hello/base.html' %} 
+
+{% block title_block %}
+<title>Sign Up</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto mb-12">
+  <form autocomplete="off" method="POST">{% csrf_token %}
+    <div class="mb-6">
+      <label
+        for="uname"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Your Username</label
+      >
+      {{ signup_form.username }}
+    </div>
+    <div class="mb-6">
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Your email</label
+        >
+        {{ signup_form.email }}
+      </div>
+
+        <div class="mb-6">
+        <label
+          for="fname"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Your First Name</label
+        >
+        {{ signup_form.first_name }}
+      </div>
+
+      <div class="mb-6">
+        <label
+          for="lname"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Your Last Name</label
+        >
+        {{ signup_form.last_name }}
+      </div>
+
+      <div class="mb-6">
+        <label
+          for="password"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Your Password</label
+        >
+        {{ signup_form.password1 }}
+      </div>
+
+      <div class="mb-6">
+        <label
+          for="cpassword"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Confirm Password</label
+        >
+        {{ signup_form.password2 }}
+      </div>
+  
+    <div class="flex items-start mb-6">
+      <div class="flex items-center h-5">
+        <input
+          id="remember"
+          type="checkbox"
+          value=""
+          class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+          
+        />
+      </div>
+      <label
+        for="remember"
+        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Remember me</label
+      >
+
+      
+    </div>
+    {% if signup_form.errors %}
+    <div class="alert alert-error shadow-lg mb-8">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span> {{ signup_form.errors }}</span>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="my-4">
+        <div class="d-flex justify-content-center links">
+            Already have an account? <a href="{% url 'login' %}" class="link link-accent">Login</a>
+        </div>
+    </div>
+
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Sign Up
+    </button>
+  </form>
+</div>
+{% endblock %}

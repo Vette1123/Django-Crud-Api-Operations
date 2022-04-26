@@ -6,12 +6,17 @@ urlpatterns = [
     path('show/<std_id>', views.show, name='show'),
     path('delete/<std_id>', views.delete_student, name='delete'),
     path('add/', views.add_student, name='add'),
-    path('edit/<std_id>', views.edit_student , name='edit'),
+    path('edit/<std_id>', views.edit_student, name='edit'),
 
-    #rest_framework api urls
+    # rest_framework api urls
     path('api-all/', views.api_all_student, name='api-all'),
     path('api-add/', views.api_add_student, name='api-add'),
     path('api-one/<std_id>', views.api_one_student, name='api-one'),
     path('api-edit/<std_id>', views.api_edit_student, name='api-edit'),
     path('api-delete/<std_id>', views.api_delete_student, name='api-delete'),
+
+    # auth urls
+    path('login/', views.signIn , name='login'),
+    path('signup/', views.signUp , name='signup'),
+    path('signout/', views.signOut , name='signout')
 ]

@@ -1,0 +1,81 @@
+{% extends 'hello/base.html' %} 
+
+{% block title_block %}
+<title>Login</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto">
+<form autocomplete="off" method="POST">{% csrf_token %}
+  <div class="mb-6">
+    <label
+      for="email"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >Your Username</label
+    >
+    <input
+      type="text"
+      id="username"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Username"
+      name="username"
+    />
+  </div>
+  <div class="mb-6">
+    <label
+      for="password"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >Your password</label
+    >
+    <input
+      type="password"
+      id="Password"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="password"
+        name="password"
+     
+    />
+  </div>
+  <div class="flex items-start mb-6">
+    <div class="flex items-center h-5">
+      <input
+        id="remember"
+        type="checkbox"
+        value=""
+        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+       
+      />
+    </div>
+    <label
+      for="remember"
+      class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >Remember me</label
+    >
+  </div>
+  <div class="my-4">
+    <div class="d-flex justify-content-center links">
+        Already a new user? <a href="{% url 'signup' %}" class="link link-accent">Register</a>
+    </div>
+</div>
+
+
+{% for msg in messages %}
+<div class="alert alert-error shadow-lg mb-8">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <span> {{ msg }}</span>
+    </div>
+  </div>
+{% endfor %}
+
+
+  <button
+    type="submit"
+    class="mb-12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+  >
+    Login
+  </button>
+
+</form>
+</div>
+{% endblock %}
